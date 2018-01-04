@@ -25,6 +25,7 @@ def cian_ru():
             driver.get(agent_url)
 
             # click on all Show Phone link on the page
+            name = ''
             try:
                 driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/div[2]/div[1]/div/div[2]/div').click()
 
@@ -37,7 +38,7 @@ def cian_ru():
                 print("No phone for " + name + ". " + str(e))
 
         with open('cian_ru.csv', 'a', newline='') as f:
-            w = csv.writer(f)
+            w = csv.writer(f, delimiter=';')
             w.writerows(agents_dict.items())
 
     driver.close()

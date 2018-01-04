@@ -35,7 +35,7 @@ def move_ru():
             agents_dict[name] = phone
 
         with open('move_ru.csv', 'a', newline='') as f:
-            w = csv.writer(f)
+            w = csv.writer(f, delimiter=';')
             w.writerows(agents_dict.items())
 
     driver.close()
