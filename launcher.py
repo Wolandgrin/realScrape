@@ -6,12 +6,15 @@ Usage:
 
         suitable scenarios:
          move_ru
-         greetotdom_ru
          cian_ru
-         greetotdom_msg
+         realto_ru
+         gdeetotdom_ru
+         gdeetotdom_msg
 """
 import argparse
 from move_ru.move_ru import move_ru
+from cian_ru.cian_ru import cian_ru
+from gdeetotdom_ru.gdeetotdom_ru import gdeetotdom_ru
 
 
 def _get_parameters():
@@ -31,41 +34,24 @@ def _get_scenarios():
         raise Exception('No scenarios specified')
 
     if args['scenario'] is 'all':
-        scenarios = ['move_ru', 'gdeetotdom_ru', 'cian_ru']
+        scenarios = ['move_ru', 'gdeetotdom_ru', 'cian_ru', 'realto_ru']
     else:
         scenarios = [args['scenario']]
 
     return scenarios
 
-
+# TODO: Find more elegant way to launch scenarios
 def main():
     """
     Main calling function which calls whole testing process
     """
     if _get_scenarios().__contains__('move_ru'):
         move_ru()
-    # if _get_scenarios().__contains__('cian_ru'):
-    #     cian_ru()
+    if _get_scenarios().__contains__('cian_ru'):
+        cian_ru()
+    if _get_scenarios().__contains__('gdeetotdom_ru'):
+        gdeetotdom_ru()
+
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
